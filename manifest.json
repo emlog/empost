@@ -2,19 +2,21 @@
     "name": "postblog",
     "version": "0.0.3",
     "manifest_version": 3,
-    "description": "发布emlog文章",
+    "description": "发布emlog笔记和文章",
     "action": {
-        "default_title": "emlog文章发布",
+        "default_title": "emlog文章笔记发布",
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
     "options_page":"options.html",
     "background": {
-      "service_worker": "background.js"
-      },
+        "service_worker": "background.js",
+        "type": "module"
+       },
     "permissions": [
         "storage",
-        "tabs"
+        "tabs",
+        "contextMenus"
     ],
     "host_permissions": ["<all_urls>"]
 }
