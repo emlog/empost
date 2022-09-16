@@ -1,0 +1,38 @@
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title>发布博客</title>
+  <link rel="stylesheet" id="templatecss" type="text/css" href="pop.css">
+  <script src="jquery.min.js"></script>
+  <script src="md5.min.js"></script>
+  <script src="custom.js"></script>
+</head>
+
+<body style="width: 500px; height: 500px;background: #555;">
+  <form id="postform" action="" method="post" class="dark-matter">
+    <h1>
+      发布emlog博客
+      <span>用于发布emlog文章的浏览器插件</span>
+    </h1>
+    <label>
+      <span>文章标题 :</span>
+      <input id="title" type="text" name="title" placeholder="请填写文章标题" />
+    </label>
+    <label>
+      <span>摘要 :</span>
+      <textarea id="abstrat" name="abstrat" placeholder="文章的摘要"></textarea>
+    </label>
+    <label>
+      <span>内容 :</span>
+      <textarea id="content" name="content" placeholder="文章的内容"></textarea>
+    </label>
+    <label style="display: flex;
+      justify-content: space-evenly;">
+      <input type="button" class="button" id="reset" value="重置" />
+      <input type="button" class="button" id="post" value="发布" />
+    </label>
+  </form>
+</body>
+
+</html>
