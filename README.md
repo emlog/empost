@@ -1,4 +1,4 @@
-# emnote
+# empost
 emlog 文章笔记发布工具 - chrome浏览器插件
 
 浏览器插件安装使用说明
