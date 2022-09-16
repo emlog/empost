@@ -10,29 +10,52 @@
 </head>
 
 <body style="width: 500px; height: 500px;background: #555;">
-  <form id="postform" action="" method="post" class="dark-matter">
-    <h1>
-      发布emlog博客
-      <span>用于发布emlog文章的浏览器插件</span>
-    </h1>
-    <label>
-      <span>文章标题 :</span>
-      <input id="title" type="text" name="title" placeholder="请填写文章标题" />
-    </label>
-    <label>
-      <span>摘要 :</span>
-      <textarea id="abstrat" name="abstrat" placeholder="文章的摘要"></textarea>
-    </label>
-    <label>
-      <span>内容 :</span>
-      <textarea id="content" name="content" placeholder="文章的内容"></textarea>
-    </label>
-    <label style="display: flex;
-      justify-content: space-evenly;">
-      <input type="button" class="button" id="reset" value="重置" />
-      <input type="button" class="button" id="post" value="发布" />
-    </label>
-  </form>
+  <ul id="tabs">
+    <li><a href="#" title="note">笔记</a></li>
+    <li><a href="#" title="article">文章</a></li>
+  </ul>
+  <div id="content">
+    <div id="note">
+      <form id="postform" action="" method="post" class="dark-matter">
+        <h1>
+          发布emlog笔记
+        </h1>
+        <label>
+          <span>内容 :</span>
+          <textarea id="note" name="note" placeholder="内容"></textarea>
+        </label>
+        <label style="display: flex;
+          justify-content: space-evenly;">
+          <input type="button" class="button" id="resetnote" value="重置" />
+          <input type="button" class="button" id="postnote" value="发布" />
+        </label>
+      </form>
+    </div>
+    <div id="article">
+      <form id="postform" action="" method="post" class="dark-matter">
+        <h1>
+          发布emlog博客
+        </h1>
+        <label>
+          <span>文章标题 :</span>
+          <input id="title" type="text" name="title" placeholder="请填写文章标题" />
+        </label>
+        <label>
+          <span>摘要 :</span>
+          <textarea id="abstrat" name="abstrat" placeholder="文章的摘要"></textarea>
+        </label>
+        <label>
+          <span>内容 :</span>
+          <textarea id="content" name="content" placeholder="文章的内容"></textarea>
+        </label>
+        <label style="display: flex;
+          justify-content: space-evenly;">
+          <input type="button" class="button" id="reset" value="重置" />
+          <input type="button" class="button" id="post" value="发布" />
+        </label>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>

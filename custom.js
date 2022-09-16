@@ -1,5 +1,9 @@
 
 $(function () {
+  $("#content div").hide(); // 隐藏两个div
+	$("#tabs li:first").attr("id","current"); // 显示第一个div
+	$("#content div:first").fadeIn(); // 显示第一个div 默认笔记
+
   var apikey = '';
   var apiurl = '';
   chrome.storage.local.get(['postblogtoken','posturl'],function(result) {
@@ -11,13 +15,17 @@ $(function () {
       chrome.runtime.openOptionsPage(function(){})
     }
   });
-  // 重置
+  // 重置文章
   $('#reset').on('click', function () {
     $('#title').val('');
     $('#abstrat').val('');
     $('#content').val('');
   });
-  // 发布
+  // 重置笔记
+  $('#resetnote').on('click', function () {
+    $('#note').val('');
+  });
+  // 发布文章
   $('#post').on('click', function () {
     let req_time = new Date().getTime();
     if('' == apikey) {
@@ -49,6 +57,39 @@ $(function () {
           $('#title').val('');
           $('#abstrat').val('');
           $('#content').val('');
+        },
+      });
+    } else {
+      alert('请填写内容后再发布。');
+    }
+  });
+
+   // 发布笔记
+   $('#postnote').on('click', function () {
+    let req_time = new Date().getTime();
+    if('' == apikey) {
+      alert('请填写url和apikey');
+      chrome.runtime.openOptionsPage(function(){})
+      return;
+    }
+     // todo 计算 accesstoken
+    let req_sign = md5(req_time +''+ apikey);
+    if ($('#note').val() !== '') {
+      $.ajax({
+        url: apiurl+'/?rest-api=note_post',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        async: true,
+        data:
+          'req_time=' +
+          req_time + '&req_sign='+req_sign+
+          '&t=' +
+          $('#note').val() ,
+        success: function (result) {
+          alert('发布成功');
+          $('#note').val('');
         },
       });
     } else {
