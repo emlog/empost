@@ -11,15 +11,21 @@
 <body style="width: 500px; background: #555;">
 <form id="postform" action="" method="post" class="dark-matter">
     <div class="navi">
-        <span>发布笔记</span>
-        <span><a href="article.html">发布文章</a></span></span>
+        <span><a href="popup.html">发布笔记</a></span>
+        <span>发布文章</span></span>
     </div>
     <label>
-        <textarea id="content" name="content" placeholder="笔记内容"></textarea>
+        <input id="title" type="text" name="title" placeholder="文章标题"/>
+    </label>
+    <label>
+        <textarea id="abstrat" name="abstrat" placeholder="文章摘要"></textarea>
+    </label>
+    <label>
+        <textarea id="content" name="content" placeholder="文章内容"></textarea>
     </label>
     <label style="display: flex;justify-content: space-evenly;">
-        <input type="button" class="button" id="post_note" value="发布"/>
-        <input type="button" class="button" id="reset_note" value="重置"/>
+        <input type="button" class="button" id="post" value="发布"/>
+        <input type="button" class="button" id="reset" value="重置"/>
     </label>
 </form>
 </body>
