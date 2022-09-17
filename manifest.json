@@ -15,11 +15,13 @@
   },
   "options_page": "options.html",
   "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": [
-    "storage"
-  ],
+    "service_worker": "background.js",
+    "type": "module"
+   },
+"permissions": [
+    "storage",
+    "contextMenus"
+],
   "host_permissions": [
     "<all_urls>"
   ]
