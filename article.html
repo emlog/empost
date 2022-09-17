@@ -1,0 +1,34 @@
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>发布博客</title>
+    <link rel="stylesheet" id="templatecss" type="text/css" href="pop.css">
+    <script src="jquery.min.js"></script>
+    <script src="md5.min.js"></script>
+    <script src="custom.js"></script>
+</head>
+
+<body style="width: 500px; background: #555;">
+<form id="postform" action="" method="post" class="dark-matter">
+    <div class="navi">
+        <span><a href="popup.html">发布笔记</a></span>
+        <span>发布文章</span></span>
+    </div>
+    <label>
+        <input id="title" type="text" name="title" placeholder="文章标题"/>
+    </label>
+    <label>
+        <textarea id="abstrat" name="abstrat" placeholder="文章摘要"></textarea>
+    </label>
+    <label>
+        <textarea id="content" name="content" placeholder="文章内容"></textarea>
+    </label>
+    <label style="display: flex;justify-content: space-evenly;">
+        <input type="button" class="button" id="post" value="发布"/>
+        <input type="button" class="button" id="reset" value="重置"/>
+    </label>
+</form>
+</body>
+
+</html>

@@ -9,28 +9,18 @@
     <script src="custom.js"></script>
 </head>
 
-<body style="width: 500px; height: 500px;background: #555;">
+<body style="width: 500px; background: #555;">
 <form id="postform" action="" method="post" class="dark-matter">
-    <h1>
-        发布emlog博客
-        <span>用于发布emlog文章的浏览器插件</span>
-    </h1>
+    <div class="navi">
+        <span>发布笔记</span>
+        <span><a href="article.html">发布文章</a></span></span>
+    </div>
     <label>
-        <span>文章标题 :</span>
-        <input id="title" type="text" name="title" placeholder="请填写文章标题"/>
+        <textarea id="content" name="content" placeholder="笔记内容"></textarea>
     </label>
-    <label>
-        <span>摘要 :</span>
-        <textarea id="abstrat" name="abstrat" placeholder="文章的摘要"></textarea>
-    </label>
-    <label>
-        <span>内容 :</span>
-        <textarea id="content" name="content" placeholder="文章的内容"></textarea>
-    </label>
-    <label style="display: flex;
-      justify-content: space-evenly;">
-        <input type="button" class="button" id="reset" value="重置"/>
-        <input type="button" class="button" id="post" value="发布"/>
+    <label style="display: flex;justify-content: space-evenly;">
+        <input type="button" class="button" id="post_note" value="发布"/>
+        <input type="button" class="button" id="reset_note" value="重置"/>
     </label>
 </form>
 </body>

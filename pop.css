@@ -1,7 +1,7 @@
 .dark-matter {
     margin-left: auto;
     margin-right: auto;
-    max-width: 500px;
+    max-width: 800px;
     background: #555;
     padding: 20px 10px 20px 10px;
     font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -32,7 +32,7 @@
 
 .dark-matter label > span {
     float: left;
-    font-size: 18px;
+    font-size: 14px;
     width: 18%;
     text-align: left;
     padding-right: 10px;
@@ -45,7 +45,7 @@
     color: #525252;
     height: 25px;
     width: 100%;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 25px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -64,9 +64,7 @@
 
 .dark-matter textarea {
     height: 100px;
-
     padding: 5px 0px 0px 5px;
-
     width: 100%;
     border: 1px solid #ccc;
     padding: 7px 0;
@@ -155,14 +153,14 @@
 /*form*/
 ul.input_test {
     margin: 20px auto 20px auto;
-    width: 500px;
+    width: 800px;
     display: flex;
     list-style-type: none;
     flex-direction: column;
 }
 
 ul.input_test li {
-    width: 500px;
+    width: 800px;
     height: 50px;
     margin-bottom: 10px;
 }
@@ -188,4 +186,18 @@ ul.input_test li {
     text-align: left;
     font-size: 1.2em;
     color: #999;
+}
+
+.navi {
+    margin: 0px 0px 20px 0px;
+}
+
+.navi a {
+    color: #F4F4F7;
+    font-size: 16px;
+}
+
+.navi span {
+    font-size: 20px;
+    margin-right: 10px;
 }
