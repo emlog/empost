@@ -1,9 +1,20 @@
 
 $(function () {
-  $("#content div").hide(); // 隐藏两个div
+  document.onmousedown = function (e) {
+    if (e.buttons == 2) {
+      return false;
+    }
+  };
+  $("#notecontent div").hide(); // 隐藏两个div
 	$("#tabs li:first").attr("id","current"); // 显示第一个div
-	$("#content div:first").fadeIn(); // 显示第一个div 默认笔记
-
+	$("#notecontent div:first").fadeIn(); // 显示第一个div 默认笔记
+  $('#tabs a').click(function(e) {
+    e.preventDefault();        
+    $("#notecontent div").hide(); //Hide all content
+    $("#tabs li").attr("id",""); //Reset id's
+    $(this).parent().attr("id","current"); // Activate this
+    $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+});
   var apikey = '';
   var apiurl = '';
   chrome.storage.local.get(['postblogtoken','posturl'],function(result) {

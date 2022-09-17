@@ -93,9 +93,9 @@
 }
 /* ------------------------------------------------- */
 
-#content {
+#notecontent {
 	padding: 2em;
-	height: 220px;
+	height: 320px;
 	position: relative;
 	z-index: 2;
 	-moz-border-radius: 0 5px 5px 5px;
@@ -105,7 +105,7 @@
 	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }
-#content h2, #content h3, #content p {
+#notecontent h2, #notecontent h3, #notecontent p {
 	margin: 0 0 15px 0;
 }
 /* ------------------------------------------------- */
@@ -179,6 +179,9 @@
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+#note textarea {
+  height: 300px;
 }
 
 .dark-matter input[type='text'],
