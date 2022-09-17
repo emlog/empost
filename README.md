@@ -10,3 +10,9 @@ emlog 文章、笔记发布工具 - chrome浏览器插件。
 - 开启右侧的开发者模式开关。
 - 点击左侧按钮：加载已解压的扩展程序。
 - 选择已解压的 empost 文件夹。即可安装成功。
+
+# 预览图
+
+[https://oss.emlog.net/img/empost/empost-01.jpg]
+
+[![JetBrains](https://oss.emlog.net/img/empost/empost-01.jpg)]
