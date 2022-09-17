@@ -1,0 +1,21 @@
+# emlog
+.htaccess
+config.php
+/content/backup/*.sql
+/content/cache/*.php
+/content/uploadfile/*
+/content/plugins/cloud_storage
+/content/templates/chen
+
+# IDE
+.project
+.settings
+.buildpath
+.cache
+.idea
+.netbeans
+.DS_Store
+
+# docker
+db_data/*
+
