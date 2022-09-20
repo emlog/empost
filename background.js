@@ -89,10 +89,16 @@ function selectTextPost(param,urlpath) {
         body: 'req_time=' + req_time + '&req_sign=' + req_sign + '&t=' + param.selectionText +
         '&title=' + param.selectionText.substr(0,20) + '&content=' + param.selectionText + '&excerpt=' + param.selectionText.substr(0,40),
       }).then(function (result) {
-        // 待完善 background 不能使用alert。因为没有window对象、
-        console.log('发布完成弹窗');
+        //使用注入js代码方式实现弹出提示。插入js可以同时插入多个js执行。
+        chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+          console.log(tabs);
+          //向当前tab注入js代码 插入的代码用于弹出提示窗口
+          chrome.scripting.executeScript({
+           target: { tabId: tabs[0].id },
+           files:['./backExeScript.js'],
+         });
+        });
       });
     }
   });
 }
-
