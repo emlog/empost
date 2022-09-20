@@ -15,7 +15,7 @@ $(function () {
             chrome.storage.local.set({'posturl': $('#apiurl').val()});
             chrome.runtime.sendMessage({greeting: "close_tab"});
         } else {
-            alert('请填写url和apikey');
+            layer.alert('请填写url和apikey');
         }
     });
 });

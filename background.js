@@ -60,13 +60,20 @@ chrome.contextMenus.onClicked.addListener(function callback(param) {
       console.log('选中文字直接发布笔记');
       selectTextPost(param,'/?rest-api=note_post');
       break;
+    case 'emloger': // 右键打开
+    openEditor();
+      break;
     default:
       break;
   }
 });
-// 选中文字发布 笔记或者文章。 文章标题截取前十个字
+function openEditor() {
+  // todo 打开编辑框，用于发布
+  // 发布成功弹窗
+  postSucces();
+}
 /**
- * 选中文字发布 笔记或者文章。 文章标题截取前十个字
+ * 选中文字发布 笔记或者文章。 文章标题 取浏览器标题
  * @param {*} param 右键获取参数 selection是选中文字
  * @param {string} urlpath 发布接口路径
  */
@@ -80,25 +87,40 @@ function selectTextPost(param,urlpath) {
       let req_time = new Date().getTime();
       // 计算 accesstoken
       let req_sign = md5(req_time + '' + apikey);
-
+      chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+      console.log(tabs[0]); // 取得浏览器标题作为文章标题
       fetch(apiurl + urlpath, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: 'req_time=' + req_time + '&req_sign=' + req_sign + '&t=' + param.selectionText +
-        '&title=' + param.selectionText.substr(0,20) + '&content=' + param.selectionText + '&excerpt=' + param.selectionText.substr(0,40),
+        '&title=' + tabs[0].title + '&content=' + param.selectionText + '&excerpt=' + param.selectionText.substr(0,40),
       }).then(function (result) {
-        //使用注入js代码方式实现弹出提示。插入js可以同时插入多个js执行。
-        chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-          console.log(tabs);
-          //向当前tab注入js代码 插入的代码用于弹出提示窗口
-          chrome.scripting.executeScript({
-           target: { tabId: tabs[0].id },
-           files:['./backExeScript.js'],
-         });
-        });
-      });
+        // 发布成功的弹窗
+          postSucces();
+      });});
+    } else {
+      // 如果参数未获取到-重新填写apikey及url
+      // 打开设置页
+      chrome.runtime.openOptionsPage(function () {
+        console.log();
+      })
     }
   });
+}
+/**
+ * 发布成功的弹窗
+ */
+function postSucces() {
+  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+  chrome.scripting.insertCSS({
+    target: { tabId: tabs[0].id },
+    files: ['./layer/theme/default/layer.css'],
+  });
+  chrome.scripting.executeScript({
+    target: { tabId: tabs[0].id },
+    files: ['./jquery.min.js', './layer/layer.js', './backExeScript.js'],
+  });
+})
 }
