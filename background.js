@@ -13,12 +13,12 @@ chrome.runtime.onInstalled.addListener(function () {
   // 浏览器页面右键菜单逻辑
   const menu = {
     menus: [
-      // {
-      //   id: 'emloger',
-      //   visible: true,
-      //   title: 'emlog发布插件',
-      //   contexts: ['page'], // page表示页面右键就会有这个菜单，如果想要当选中文字时才会出现此右键菜单，用：selection
-      // },
+      {
+        id: 'emloger',
+        visible: true,
+        title: 'emlog发布插件',
+        contexts: ['page'], // page表示页面右键就会有这个菜单，如果想要当选中文字时才会出现此右键菜单，用：selection
+      },
       // {
       //   id: 'postnote',
       //   visible: true,
@@ -60,10 +60,18 @@ chrome.contextMenus.onClicked.addListener(function callback(param) {
       console.log('选中文字直接发布笔记');
       selectTextPost(param,'/?rest-api=note_post');
       break;
+    case 'emloger': // 右键打开
+    openEditor();
+      break;
     default:
       break;
   }
 });
+function openEditor() {
+  // todo 打开编辑框，用于发布
+  // 发布成功弹窗
+  postSucces();
+}
 // 选中文字发布 笔记或者文章。 文章标题截取前十个字
 /**
  * 选中文字发布 笔记或者文章。 文章标题截取前十个字
@@ -89,16 +97,24 @@ function selectTextPost(param,urlpath) {
         body: 'req_time=' + req_time + '&req_sign=' + req_sign + '&t=' + param.selectionText +
         '&title=' + param.selectionText.substr(0,20) + '&content=' + param.selectionText + '&excerpt=' + param.selectionText.substr(0,40),
       }).then(function (result) {
-        //使用注入js代码方式实现弹出提示。插入js可以同时插入多个js执行。
-        chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-          console.log(tabs);
-          //向当前tab注入js代码 插入的代码用于弹出提示窗口
-          chrome.scripting.executeScript({
-           target: { tabId: tabs[0].id },
-           files:['./backExeScript.js'],
-         });
-        });
+        // 发布成功的弹窗
+          postSucces();
       });
     }
   });
+}
+/**
+ * 发布成功的弹窗
+ */
+function postSucces() {
+  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+  chrome.scripting.insertCSS({
+    target: { tabId: tabs[0].id },
+    files: ['./layer/theme/default/layer.css',],
+  });
+  chrome.scripting.executeScript({
+    target: { tabId: tabs[0].id },
+    files: ['./jquery.min.js', './layer/layer.js', './backExeScript.js'],
+  });
+})
 }

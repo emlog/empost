@@ -17,13 +17,27 @@
   "background": {
     "service_worker": "background.js",
     "type": "module"
-   },
-"permissions": [
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "jquery.min.js",
+        "layer/theme/default/*.*",
+        "layer/layer.js",
+        "backExeScript.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "permissions": [
     "storage",
     "contextMenus",
     "scripting",
+    "activeTab",
     "tabs"
-],
+  ],
   "host_permissions": [
     "<all_urls>"
   ]
