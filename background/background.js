@@ -59,7 +59,7 @@ chrome.contextMenus.onClicked.addListener(function callback(param) {
   switch (param.menuItemId) {
     case 'postarticleselect': // 选中文字右键直接发布文章
       console.log('选中文字直接发布文章');
-      if(articlemd !== '') {
+      if(articlemd !== '') {// 如果有选中文字转换的markdown字符串就使用转换后的。
         param.selectionText = articlemd;
       }
       selectTextPost(param,'/?rest-api=article_post');

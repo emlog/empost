@@ -1,9 +1,14 @@
 // 选中内容 html转md到后台接收，用于发布文章
+/**
+ * 选中文字直接发布文章使用
+ * @param {*} e 
+ */
 function AutocopySelection(e) {
     var selectedText = window.getSelection().toString().trim();
     console.log(e);
     if (selectedText) {
         var text = _getSelectionHtml();
+        // 引入turndown插件用于转换html到markdown
         let tomd = new TurndownService();
         // plugins 里面编写 替换标签规则即可实现自定义
         tomd.use(plugins);
@@ -21,6 +26,7 @@ function copySelection(e) {
     console.log(e);
     if (selectedText) {
         var text = _getSelectionHtml();
+        // 引入turndown插件用于转换html到markdown
         let tomd = new TurndownService();
         // plugins 里面编写 替换标签规则即可实现自定义
         tomd.use(plugins);
