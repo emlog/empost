@@ -10,6 +10,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     chrome.tabs.remove(sender.tab.id);
   } else if (request.greeting === 'receivemsg') {
     articlemd = request.msg;
+  } else if(request.greeting === 'getboolmarkdown') { // 获取markdown配置
+    chrome.storage.local.get(['markdown'], function (result) {
+      sendResponse(result.markdown);
+      });
   }
 });
 

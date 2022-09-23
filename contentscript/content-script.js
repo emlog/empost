@@ -36,7 +36,7 @@ function copySelection(e) {
             if (result.state === "granted" || result.state == "prompt") {
               navigator.clipboard.writeText(text)
                 .then(() => {
-                console.log('html文本已经成功复制到剪切板'+text);
+                console.log('文本已经成功复制到剪切板'+text);
               })
                 .catch(err => {
                  //如果用户没有授权，则抛出异常
@@ -99,4 +99,12 @@ function _getSelectionHtml() {
 选择自动复制到剪贴板
 */
 document.addEventListener("mouseup", AutocopySelection);
-document.addEventListener("copy", copySelection);
+chrome.runtime.sendMessage({greeting: 'getboolmarkdown'},function(params) {
+    // 获取markdown配置
+    if(params) {
+            /*
+            更改默认复制，将转换后的markdown写入剪贴板
+            */
+            document.addEventListener("copy", copySelection);
+    }
+});
