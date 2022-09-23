@@ -2,6 +2,7 @@ import md5 from '../deps/md5.js';
 var articlemd = '';
 /**
  * 用于接收关闭配置页的方法，可以关闭当前tab页
+ * 还用于接收其他消息，新增接收内容页复制得到的markdown字符串
  */
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log('Request comes from content script ' + sender.tab.id);
