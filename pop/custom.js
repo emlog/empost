@@ -18,7 +18,13 @@ $(function () {
         $('#abstrat').val('');
         $('#content').val('');
     });
-
+     // 粘贴监听 可以在此处增加版权信息外链链接等
+    // document.addEventListener("paste", function (e) {  // 粘贴事件触发
+    //     navigator.clipboard.readText().then(
+    //         clipText => {
+    //             document.querySelector("#content").innerText = clipText
+    //         });;
+    // }, false);
     // 发布文章
     $('#post').on('click', function () {
         let req_time = new Date().getTime();
@@ -40,7 +46,7 @@ $(function () {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             async: true,
-            data: 'req_time=' + req_time + '&req_sign=' + req_sign + '&title=' + $('#title').val() + '&content=' + $('#content').val() + '&excerpt=' + $('#abstrat').val(),
+            data: 'req_time=' + req_time + '&req_sign=' + req_sign + '&title=' + encodeURIComponent($('#title').val()) + '&content=' + encodeURIComponent($('#content').val()) + '&excerpt=' + encodeURIComponent($('#abstrat').val()),
             success: function (result) {
                 layer.alert('文章发布成功');
                 $('#title').val('');
