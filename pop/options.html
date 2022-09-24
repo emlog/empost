@@ -3,8 +3,8 @@
     <meta charset="utf-8"/>
     <title>emlog文章、笔记发布插件设置</title>
     <link rel="stylesheet" id="templatecss" type="text/css" href="pop.css">
-    <script src="jquery.min.js"></script>
-    <script src="/layer/layer.js"></script>
+    <script src="/deps/jquery.min.js"></script>
+    <script src="/deps/layer/layer.js"></script>
     <script src="customoption.js"></script>
 </head>
 <body>
@@ -19,6 +19,11 @@
         <label for="apikey">apikey：</label>
         <p><input id="apikey" class="input_out" name="" type="text"/></p>
         <span>见emlog后台系统设置-API接口</span>
+    </li>
+    <li>
+        <label for="markdown">markdown：</label>
+        <p style="width: 25px;"><input id="markdown" name="" type="checkbox"/></p>
+        <span>复制粘贴文章是否使用markdown格式，该设置会影响所有网页复制粘贴。</span>
     </li>
     <li style="display: flex;flex-direction: column;align-items: center;"><input
             type="button"

@@ -1,11 +1,19 @@
-import md5 from './md5.js';
+import md5 from '../deps/md5.js';
+var articlemd = '';
 /**
  * 用于接收关闭配置页的方法，可以关闭当前tab页
+ * 还用于接收其他消息，新增接收内容页复制得到的markdown字符串
  */
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log('Request comes from content script ' + sender.tab.id);
   if (request.greeting === 'close_tab') {
     chrome.tabs.remove(sender.tab.id);
+  } else if (request.greeting === 'receivemsg') {
+    articlemd = request.msg;
+  } else if(request.greeting === 'getboolmarkdown') { // 获取markdown配置
+    chrome.storage.local.get(['markdown'], function (result) {
+      sendResponse(result.markdown);
+      });
   }
 });
 
@@ -49,11 +57,15 @@ chrome.runtime.onInstalled.addListener(function () {
   createMenu();
 });
 
+
 chrome.contextMenus.onClicked.addListener(function callback(param) {
   console.log(param);
   switch (param.menuItemId) {
     case 'postarticleselect': // 选中文字右键直接发布文章
       console.log('选中文字直接发布文章');
+      if(articlemd !== '') {// 如果有选中文字转换的markdown字符串就使用转换后的。
+        param.selectionText = articlemd;
+      }
       selectTextPost(param,'/?rest-api=article_post');
       break;
     case 'postnoteselect': // 选中文字右键直接发布笔记
@@ -95,7 +107,7 @@ function selectTextPost(param,urlpath) {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: 'req_time=' + req_time + '&req_sign=' + req_sign + '&t=' + param.selectionText +
-        '&title=' + tabs[0].title + '&content=' + param.selectionText + '&excerpt=' + param.selectionText.substr(0,40),
+        '&title=' + encodeURIComponent(tabs[0].title.split('-')[0]) + '&content=' + encodeURIComponent(param.selectionText) + '&excerpt=' + encodeURIComponent(param.selectionText.substr(0,40)),
       }).then(function (result) {
         // 发布成功的弹窗
           postSucces();
@@ -116,11 +128,11 @@ function postSucces() {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
   chrome.scripting.insertCSS({
     target: { tabId: tabs[0].id },
-    files: ['./layer/theme/default/layer.css'],
+    files: ['./deps/layer/theme/default/layer.css'],
   });
   chrome.scripting.executeScript({
     target: { tabId: tabs[0].id },
-    files: ['./jquery.min.js', './layer/layer.js', './backExeScript.js'],
+    files: ['./deps/jquery.min.js', './deps/layer/layer.js', '/background/backExeScript.js'],
   });
 })
 }

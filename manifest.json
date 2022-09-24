@@ -6,25 +6,39 @@
   "action": {
     "default_title": "emlog文章、笔记发布",
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "/pop/popup.html"
   },
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
-  "options_page": "options.html",
+  "options_page": "/pop/options.html",
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "/background/background.js",
     "type": "module"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [],
+      "js": [
+        "/deps/turndownplugs.js",
+        "/deps/turndown.browser.umd.js",
+        "/contentscript/content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
   "web_accessible_resources": [
     {
       "resources": [
-        "jquery.min.js",
-        "layer/theme/default/*.*",
-        "layer/layer.js",
-        "backExeScript.js"
+        "/deps/jquery.min.js",
+        "/deps/layer/theme/default/*.*",
+        "/deps/layer/layer.js",
+        "/background/backExeScript.js"
       ],
       "matches": [
         "<all_urls>"
