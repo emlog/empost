@@ -12,91 +12,101 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
+
 /*------------------------------------------------------*/
 #tabs {
-	overflow: hidden;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
 #tabs li {
-	float: left;
-	margin: 0 .5em 0 0;
+    float: left;
+    margin: 0 .5em 0 0;
 }
+
 #tabs a {
-	position: relative;
-  color: rgb(244, 239, 239);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	background-image: linear-gradient(to bottom, #fff, #ddd);
-	padding: .7em 3.5em;
-	float: left;
-	text-decoration: none;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
-	-webkit-border-radius: 5px 0 0 0;
-	-moz-border-radius: 5px 0 0 0;
-	border-radius: 5px 0 0 0;
-	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    position: relative;
+    color: rgb(244, 239, 239);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -ms-linear-gradient(top, #fff, #ddd);
+    background-image: -o-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    padding: .7em 3.5em;
+    float: left;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
 }
- #tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after {
- background: rgb(27, 104, 143);
+
+#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after {
+    background: rgb(27, 104, 143);
 }
+
 #tabs a:focus {
-	outline: 0;
+    outline: 0;
 }
- #tabs a::after {
- content:'';
- position:absolute;
- z-index: 1;
- top: 0;
- right: -.5em;
- bottom: 0;
- width: 1em;
- background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
- background-image: -webkit-linear-gradient(top, #fff, #ddd);
- background-image: -moz-linear-gradient(top, #fff, #ddd);
- background-image: -ms-linear-gradient(top, #fff, #ddd);
- background-image: -o-linear-gradient(top, #fff, #ddd);
- background-image: linear-gradient(to bottom, #fff, #ddd);
- -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
- -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
- box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
- -webkit-transform: skew(10deg);
- -moz-transform: skew(10deg);
- -ms-transform: skew(10deg);
- -o-transform: skew(10deg);
- transform: skew(10deg);
- -webkit-border-radius: 0 5px 0 0;
- -moz-border-radius: 0 5px 0 0;
- border-radius: 0 5px 0 0;
+
+#tabs a::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: -.5em;
+    bottom: 0;
+    width: 1em;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -ms-linear-gradient(top, #fff, #ddd);
+    background-image: -o-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+    -ms-transform: skew(10deg);
+    -o-transform: skew(10deg);
+    transform: skew(10deg);
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
 }
- #tabs #current a, #tabs #current a::after {
-  background: rgb(27, 104, 143);
- z-index: 3;
+
+#tabs #current a, #tabs #current a::after {
+    background: rgb(27, 104, 143);
+    z-index: 3;
 }
+
 /* ------------------------------------------------- */
 
 #notecontent {
-	padding: 2em;
-	height: 320px;
-	position: relative;
-	z-index: 2;
-	-moz-border-radius: 0 5px 5px 5px;
-	-webkit-border-radius: 0 5px 5px 5px;
-	border-radius: 0 5px 5px 5px;
-	-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
-	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
-	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+    padding: 2em;
+    height: 320px;
+    position: relative;
+    z-index: 2;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+    border-radius: 0 5px 5px 5px;
+    -moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+    box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }
+
 #notecontent h2, #notecontent h3, #notecontent p {
-	margin: 0 0 15px 0;
+    margin: 0 0 15px 0;
 }
+
 /* ------------------------------------------------- */
 .dark-matter h1 {
     padding: 0px 0px 10px 40px;
@@ -162,8 +172,17 @@
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
+
+.dark-matter #content {
+    height: 200px;
+}
+
+.dark-matter #abstrat {
+    height: 80px;
+}
+
 #note textarea {
-  height: 300px;
+    height: 300px;
 }
 
 .dark-matter input[type='text'],

@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>emlog内容发布</title>
-    <link rel="stylesheet" id="templatecss" type="text/css" href="pop.css">
+    <link rel="stylesheet" id="templatecss" type="text/css" href="pop.css?t=0.0.4">
     <script src="/deps/jquery.min.js"></script>
     <script src="/deps/md5.min.js"></script>
     <script src="/deps/layer/layer.js"></script>
@@ -16,13 +16,13 @@
         <span>发布文章</span></span>
     </div>
     <label>
-        <input id="title" type="text" name="title" placeholder="文章标题"/>
+        <input id="title" type="text" name="title" placeholder="标题"/>
     </label>
     <label>
-        <textarea id="abstrat" name="abstrat" placeholder="文章摘要"></textarea>
+        <textarea id="content" name="content" placeholder="内容，支持 Markdown"></textarea>
     </label>
     <label>
-        <textarea id="content" name="content" placeholder="文章内容"></textarea>
+        <textarea id="abstrat" name="abstrat" placeholder="摘要（选填）"></textarea>
     </label>
     <label style="display: flex;justify-content: space-evenly;">
         <input type="button" class="button" id="post" value="发布"/>

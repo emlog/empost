@@ -5,7 +5,8 @@ emlog 文章、笔记发布工具 - chrome浏览器插件。
 
 # chrome浏览器安装
 
-- 已上架应用商店， 打开 chrome 浏览器的应用商店，搜索 emlog 或者 empost 关键词， 即可找到 empost，安装即可。
+- Chrome应用商店： [empost](https://chrome.google.com/webstore/detail/empost/mnahegkpoaiknhdcibopjocnlbggpdcn?utm_source=ext_sidebar&hl=zh-CN)
+- 点击 添加至 Chrome 即可。
 
 # edge浏览器安装
 
@@ -17,6 +18,10 @@ emlog 文章、笔记发布工具 - chrome浏览器插件。
 
 
 # 变更记录
+
+## v0.0.4
+
+- 调整文案和界面
 
 ## v0.0.3
 
