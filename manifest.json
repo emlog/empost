@@ -1,6 +1,6 @@
 {
   "name": "empost",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "manifest_version": 3,
   "description": "发布emlog文章、笔记",
   "action": {
