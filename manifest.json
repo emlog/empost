@@ -25,8 +25,8 @@
       ],
       "css": [],
       "js": [
-        "/deps/turndownplugs.js",
         "/deps/turndown.browser.umd.js",
+        "/deps/turndownplugs.js",
         "/contentscript/content-script.js"
       ],
       "run_at": "document_end"

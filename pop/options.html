@@ -8,29 +8,33 @@
     <script src="customoption.js"></script>
 </head>
 <body>
-<h1>emlog文章、笔记发布插件设置</h1>
-<ul class="input_test">
-    <li>
-        <label for="apiurl">网址：</label>
-        <p><input id="apiurl" class="input_out" name="" type="text" placeholder="https://www.xxx.net"/></p>
-        <span>请输入emlog站点的网址</span>
-    </li>
-    <li>
-        <label for="apikey">apikey：</label>
-        <p><input id="apikey" class="input_out" name="" type="text"/></p>
-        <span>见emlog后台系统设置-API接口（并确保已开启API）</span>
-    </li>
-    <li>
-        <label for="markdown">markdown：</label>
-        <p style="width: 25px;"><input id="markdown" name="" type="checkbox"/></p>
-        <span>复制粘贴文章是否使用markdown格式，该设置会影响所有网页复制粘贴。</span>
-    </li>
-    <li style="display: flex;flex-direction: column;align-items: center;"><input
-            type="button"
-            class="button"
-            id="comitapikey"
-            value="保存"
-    /></li>
-</ul>
+<div class="options-container">
+    <h1>emlog文章、笔记发布插件设置</h1>
+    <ul class="input_test">
+        <li>
+            <label for="apiurl">网址：</label>
+            <p><input id="apiurl" class="input_out" name="" type="text" placeholder="https://www.xxx.net"/></p>
+            <span>请输入emlog站点的网址</span>
+        </li>
+        <li>
+            <label for="apikey">apikey：</label>
+            <p><input id="apikey" class="input_out" name="" type="text"/></p>
+            <span>见emlog后台系统设置-API接口</span>
+        </li>
+        <li>
+            <label for="markdown">markdown：</label>
+            <p style="width: auto;"><input id="markdown" name="" type="checkbox"/></p>
+            <span>复制粘贴文章是否使用markdown格式，该设置会影响所有网页复制粘贴。</span>
+        </li>
+    </ul>
+    <div class="save-button-container">
+        <input
+                type="button"
+                class="button button-primary"
+                id="comitapikey"
+                value="保存"
+        />
+    </div>
+</div>
 </body>
 </html>

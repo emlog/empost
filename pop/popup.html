@@ -10,19 +10,21 @@
 </head>
 
 <body style="width: 500px; background: #555;">
-<form id="postform" action="" method="post" class="dark-matter">
-    <div class="navi">
-        <span>发布笔记</span>
-        <span><a href="article.html">发布文章</a></span></span>
-    </div>
-    <label>
-        <textarea id="content" name="content" placeholder="笔记内容"></textarea>
-    </label>
-    <label style="display: flex;justify-content: space-evenly;">
-        <input type="button" class="button" id="post_note" value="发布"/>
-        <input type="button" class="button" id="reset_note" value="重置"/>
-    </label>
-</form>
+<div class="form-container">
+    <form id="postform" action="" method="post">
+        <div class="navi">
+            <span class="active">发布笔记</span>
+            <span><a href="article.html">发布文章</a></span>
+        </div>
+        <label>
+            <textarea id="content" name="content" placeholder="笔记内容"></textarea>
+        </label>
+        <div class="button-container">
+            <input type="button" class="button button-secondary" id="reset_note" value="重置"/>
+            <input type="button" class="button button-primary" id="post_note" value="发布"/>
+        </div>
+    </form>
+</div>
 </body>
 
 </html>

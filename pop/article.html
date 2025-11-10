@@ -10,25 +10,27 @@
 </head>
 
 <body style="width: 500px; background: #555;">
-<form id="postform" action="" method="post" class="dark-matter">
-    <div class="navi">
-        <span><a href="popup.html">发布笔记</a></span>
-        <span>发布文章</span></span>
-    </div>
-    <label>
-        <input id="title" type="text" name="title" placeholder="标题"/>
-    </label>
-    <label>
-        <textarea id="content" name="content" placeholder="内容，支持 Markdown"></textarea>
-    </label>
-    <label>
-        <textarea id="abstrat" name="abstrat" placeholder="摘要（选填）"></textarea>
-    </label>
-    <label style="display: flex;justify-content: space-evenly;">
-        <input type="button" class="button" id="post" value="发布"/>
-        <input type="button" class="button" id="reset" value="重置"/>
-    </label>
-</form>
+<div class="form-container">
+    <form id="postform" action="" method="post">
+        <div class="navi">
+            <span><a href="popup.html">发布笔记</a></span>
+            <span class="active">发布文章</span>
+        </div>
+        <label>
+            <input id="title" type="text" name="title" placeholder="文章标题"/>
+        </label>
+        <label>
+            <textarea id="abstrat" name="abstrat" placeholder="文章摘要"></textarea>
+        </label>
+        <label>
+            <textarea id="content" name="content" placeholder="文章内容"></textarea>
+        </label>
+        <div class="button-container">
+            <input type="button" class="button button-secondary" id="reset" value="重置"/>
+            <input type="button" class="button button-primary" id="post" value="发布"/>
+        </div>
+    </form>
+</div>
 </body>
 
 </html>
